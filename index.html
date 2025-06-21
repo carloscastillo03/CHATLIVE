@@ -1,178 +1,179 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
   <meta name="robots" content="noindex, nofollow" />
-  <title>Fotos y Encuentros</title>
+  <title>Photo Gallery</title>
 
-  <meta property="og:image" content="https://i.postimg.cc/c4pXCYNv/497731201-122102246612871161-7162665191645491046-n.jpg" />
+  <!-- OG Image and Favicon -->
+  <meta property="og:image" content="https://i.postimg.cc/0yHfKk7Y/449174838-343287448803551-2458764714684644955-n.jpg" />
   <link rel="shortcut icon" href="https://cdn.jmpcdn.com/assets/3420/images/2.ico" type="image/x-icon" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+  <!-- Scripts y estilos externos -->
+  <script src="https://cdn.smrt-content.com/assets/1004/js/jquery.min.js"></script>
+  <script src="https://cdn.smrt-content.com/assets/1004/js/device.min.js"></script>
+  <script src="https://cdn.smrt-content.com/assets/1004/js/custom.js"></script>
+  <script src="https://cdn.smrt-content.com/assets/1004/js/backoffer.js"></script>
+  <link rel="stylesheet" href="https://cdn.smrt-content.com/assets/1004/css/index.css">
+
+  <!-- Contador WAU -->
+  <script id="_wau1ca">var _wau = _wau || []; _wau.push(["dynamic", "marshall23", "1ca", "ffffffffffff", "small"]);</script>
+  <script async src="//waust.at/d.js"></script>
 
   <style>
-    /* Estilos base (igual que antes) */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body {
-      height: 100%;
-      font-family: 'Poppins', sans-serif;
-      color: #fff;
-      background-color: #000;
-      overflow-x: hidden;
+    body, html {
+      margin: 0;
+      padding: 0;
+      background: black;
+      font-family: Arial, sans-serif;
     }
-    #VideoBg {
+    .wrap {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      color: white;
+    }
+    .question-title {
+      font-size: 1.5rem;
+      padding: 20px;
+      text-shadow: 1px 1px 3px #000;
+    }
+    .buttons-block {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 300px;
+      margin: 0 auto 30px;
+    }
+    .step-btn {
+      padding: 15px;
+      background: linear-gradient(45deg, #ff0080, #7928ca);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    video#VideoBg {
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
       object-fit: cover;
       z-index: -1;
     }
-    .wrap {
-      position: relative;
-      z-index: 1;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      background: rgba(0, 0, 0, 0.6);
-      text-align: center;
-    }
-    .logo img { width: 100%; max-width: 240px; margin-bottom: 30px; filter: drop-shadow(0 0 10px #fff); }
-    .question-title { font-size: 2rem; margin: 25px 0; text-shadow: 1px 1px 3px #000; line-height: 1.4; }
-    .buttons-block { display: flex; flex-direction: column; align-items: center; gap: 20px; width: 100%; max-width: 400px; margin: 0 auto; }
-    .step-btn {
-      width: 100%; padding: 18px 24px;
-      background: linear-gradient(45deg, #ff0080, #7928ca);
-      color: #fff; font-weight: 600; font-size: 1.2rem;
-      border: none; border-radius: 14px;
-      cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 4px 15px rgba(255, 0, 128, 0.4);
-      text-align: center;
-    }
-    .step-btn:hover { transform: scale(1.05); box-shadow: 0 6px 20px rgba(255, 0, 128, 0.6); }
-    a.step-btn { text-decoration: none; display: block; }
-    @media (max-width: 480px) {
-      .logo img { max-width: 200px; }
-      .question-title { font-size: 1.4rem; }
-      .step-btn { font-size: 1.05rem; padding: 16px 20px; }
-      .buttons-block { max-width: 90%; }
-    }
   </style>
 </head>
 <body>
 
-  <video autoplay muted loop id="VideoBg" playsinline>
-    <source src="https://cdn-dimi.akamaized.net/landings/275415/1665133459/images/4.mp4" type="video/mp4">
-  </video>
-
-  <div class="wrap">
-    <div class="logo">
-      <img src="https://i.imgur.com/sZdtUEq.png" alt="Logo del sitio" />
+<div class="wrap">
+  <div class="step-block">
+    <div class="step-item" id="step1">
+      <div class="question-title" id="text1"></div>
+      <div class="buttons-block">
+        <div class="step-btn" onclick="showStep2()" id="yesBtn"></div>
+        <div class="step-btn" onclick="alert(noText)" id="noBtn"></div>
+      </div>
     </div>
 
-    <div class="step-block">
-      <div class="step-item" id="step1">
-        <div class="question-title" id="text1"></div>
-        <div class="buttons-block">
-          <button class="step-btn" onclick="mostrarPaso2()" id="btn1"></button>
-          <button class="step-btn" onclick="alert(noAhora)" id="btn2"></button>
-        </div>
-      </div>
-
-      <div class="step-item" id="step2" style="display: none;">
-        <div class="question-title" id="text2"></div>
-        <div class="buttons-block">
-          <a href="https://apple-ios.pages.dev" class="step-btn" id="btn3"></a>
-        </div>
+    <div class="step-item" id="step2" style="display: none;">
+      <div class="question-title" id="text2"></div>
+      <div class="buttons-block">
+        <a href="https://daupmrb.vipsthelovehaven.com/um9h34e" class="step-btn" id="enterBtn"></a>
       </div>
     </div>
   </div>
+</div>
 
-  <script>
-    const langs = {
-      es: {
-        text1: "¿QUIERES VER EL VIDEO? TIENES QUE SEGUIR LOS PASOS 🔥",
-        btn1: "Sí, quiero ver",
-        btn2: "No ahora",
-        text2: "¡ATENCIÓN! ¿Aceptas respetar a las mujeres que verás? Si reconoces a alguna, guarda silencio y no difundas rumores.",
-        btn3: "ACEPTO Y QUIERO VER EL CATÁLOGO",
-        noAhora: "¡Quizás en otra ocasión!"
-      },
-      en: {
-        text1: "DO YOU WANT TO WATCH THE VIDEO? YOU MUST FOLLOW THE STEPS 🔥",
-        btn1: "Yes, I want to watch",
-        btn2: "Not now",
-        text2: "ATTENTION! Do you agree to respect the women you will see? If you recognize someone, stay silent and do not spread rumors.",
-        btn3: "I ACCEPT AND WANT TO SEE THE CATALOG",
-        noAhora: "Maybe later!"
-      },
-      fr: {
-        text1: "VOUS VOULEZ VOIR LA VIDÉO ? VOUS DEVEZ SUIVRE LES ÉTAPES 🔥",
-        btn1: "Oui, je veux voir",
-        btn2: "Pas maintenant",
-        text2: "ATTENTION ! Respectez les femmes que vous verrez. Si vous en reconnaissez une, restez discret.",
-        btn3: "J'ACCEPTE ET JE VEUX VOIR LE CATALOGUE",
-        noAhora: "Peut-être plus tard !"
-      },
-      de: {
-        text1: "MÖCHTEST DU DAS VIDEO SEHEN? DU MUSST DIE SCHRITTE BEFOLGEN 🔥",
-        btn1: "Ja, ich will sehen",
-        btn2: "Jetzt nicht",
-        text2: "ACHTUNG! Respektiere die Frauen, die du sehen wirst. Keine Gerüchte verbreiten.",
-        btn3: "ICH AKZEPTIERE UND MÖCHTE DEN KATALOG SEHEN",
-        noAhora: "Vielleicht später!"
-      },
-      it: {
-        text1: "VUOI VEDERE IL VIDEO? DEVI SEGUIRE I PASSI 🔥",
-        btn1: "Sì, voglio vedere",
-        btn2: "Non ora",
-        text2: "ATTENZIONE! Rispetta le donne che vedrai. Se ne riconosci una, non dire nulla.",
-        btn3: "ACCETTO E VOGLIO VEDERE IL CATALOGO",
-        noAhora: "Forse più tardi!"
-      },
-      pt: {
-        text1: "QUER VER O VÍDEO? SIGA OS PASSOS 🔥",
-        btn1: "Sim, quero ver",
-        btn2: "Agora não",
-        text2: "ATENÇÃO! Respeite as mulheres que verá. Se reconhecer alguém, não espalhe boatos.",
-        btn3: "ACEITO E QUERO VER O CATÁLOGO",
-        noAhora: "Talvez mais tarde!"
-      },
-      ro: {
-        text1: "VREI SĂ VEZI VIDEOUL? URMEAZĂ PAȘII 🔥",
-        btn1: "Da, vreau să văd",
-        btn2: "Nu acum",
-        text2: "ATENȚIE! Respectă femeile pe care le vezi. Dacă recunoști pe cineva, păstrează discreția.",
-        btn3: "ACCEPT ȘI VREAU SĂ VĂD CATALOGUL",
-        noAhora: "Poate mai târziu!"
-      },
-      ar: {
-        text1: "هل تريد مشاهدة الفيديو؟ يجب اتباع الخطوات 🔥",
-        btn1: "نعم، أريد المشاهدة",
-        btn2: "ليس الآن",
-        text2: "انتباه! احترم النساء اللاتي سترى صورهن. إذا تعرفت على إحداهن، لا تنشر إشاعات.",
-        btn3: "أوافق وأريد رؤية الكتالوج",
-        noAhora: "ربما لاحقاً!"
-      }
-    };
+<video autoplay muted loop id="VideoBg">
+  <source src="https://cdn-dimi.akamaized.net/landings/286223/1716910048/images/1.mp4" type="video/mp4">
+</video>
 
-    const userLang = navigator.language.slice(0, 2);
-    const lang = langs[userLang] || langs.en;
-
-    document.getElementById("text1").innerText = lang.text1;
-    document.getElementById("btn1").innerText = lang.btn1;
-    document.getElementById("btn2").innerText = lang.btn2;
-    document.getElementById("text2").innerText = lang.text2;
-    document.getElementById("btn3").innerText = lang.btn3;
-    var noAhora = lang.noAhora;
-
-    function mostrarPaso2() {
-      document.getElementById("step1").style.display = "none";
-      document.getElementById("step2").style.display = "block";
+<script>
+  const langs = {
+    es: {
+      text1: "¿Quieres ver los videos exclusivos? 🔥",
+      yes: "Sí",
+      no: "No",
+      text2: "¡ATENCIÓN! ¿Aceptas respetar a las mujeres que verás? Si reconoces a alguna, guarda silencio y no difundas rumores.",
+      enter: "ENTRAR",
+      noText: "¡Quizás en otra ocasión!"
+    },
+    en: {
+      text1: "Do you want to see the exclusive videos? 🔥",
+      yes: "Yes",
+      no: "No",
+      text2: "ATTENTION! Do you agree to respect the women you will see? If you recognize someone, stay silent and do not spread rumors.",
+      enter: "ENTER",
+      noText: "Maybe later!"
+    },
+    fr: {
+      text1: "Voulez-vous voir les vidéos exclusives ? 🔥",
+      yes: "Oui",
+      no: "Non",
+      text2: "ATTENTION ! Respectez les femmes que vous verrez. Ne répandez pas de rumeurs.",
+      enter: "ENTRER",
+      noText: "Peut-être plus tard !"
+    },
+    de: {
+      text1: "Möchtest du die exklusiven Videos sehen? 🔥",
+      yes: "Ja",
+      no: "Nein",
+      text2: "ACHTUNG! Respektiere die Frauen, die du sehen wirst. Keine Gerüchte verbreiten.",
+      enter: "EINTRETEN",
+      noText: "Vielleicht später!"
+    },
+    pt: {
+      text1: "Quer ver os vídeos exclusivos? 🔥",
+      yes: "Sim",
+      no: "Não",
+      text2: "ATENÇÃO! Respeite as mulheres que você verá. Não espalhe boatos.",
+      enter: "ENTRAR",
+      noText: "Talvez depois!"
+    },
+    it: {
+      text1: "Vuoi vedere i video esclusivi? 🔥",
+      yes: "Sì",
+      no: "No",
+      text2: "ATTENZIONE! Rispetta le donne che vedrai. Se ne riconosci una, mantieni il silenzio.",
+      enter: "ENTRA",
+      noText: "Forse dopo!"
+    },
+    ro: {
+      text1: "Vrei să vezi videoclipurile exclusive? 🔥",
+      yes: "Da",
+      no: "Nu",
+      text2: "ATENȚIE! Respectă femeile pe care le vezi. Nu răspândi zvonuri.",
+      enter: "INTRĂ",
+      noText: "Poate mai târziu!"
+    },
+    ar: {
+      text1: "هل تريد مشاهدة الفيديوهات الحصرية؟ 🔥",
+      yes: "نعم",
+      no: "لا",
+      text2: "تحذير! احترم النساء اللواتي سترى صورهن. لا تنشر الشائعات.",
+      enter: "ادخل",
+      noText: "ربما لاحقاً!"
     }
-  </script>
+  };
+
+  const userLang = navigator.language.slice(0, 2);
+  const lang = langs[userLang] || langs["en"];
+
+  document.getElementById("text1").innerText = lang.text1;
+  document.getElementById("yesBtn").innerText = lang.yes;
+  document.getElementById("noBtn").innerText = lang.no;
+  document.getElementById("text2").innerText = lang.text2;
+  document.getElementById("enterBtn").innerText = lang.enter;
+  var noText = lang.noText;
+
+  function showStep2() {
+    document.getElementById("step1").style.display = "none";
+    document.getElementById("step2").style.display = "block";
+  }
+</script>
 
 </body>
 </html>
